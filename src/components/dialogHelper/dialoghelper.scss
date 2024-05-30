@@ -156,3 +156,7 @@
 .dialogBackdropOpened {
     opacity: 0.5;
 }
+
+.backdrop-blur {
+    backdrop-filter: blur(8px);
+}
