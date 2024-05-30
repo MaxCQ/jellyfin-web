@@ -200,6 +200,8 @@ function addBackdropOverlay(dlg) {
     backdropParent.parentNode.insertBefore(backdrop, backdropParent);
     dlg.backdrop = backdrop;
 
+    dlg.classList.contains("formDialog") && dlg.parentNode.classList.add("backdrop-blur");
+
     // trigger reflow or the backdrop will not animate
     void backdrop.offsetWidth;
     backdrop.classList.add('dialogBackdropOpened');
