@@ -196,24 +196,23 @@ function addBackdropOverlay(dlg) {
     const backdrop = document.createElement('div');
     backdrop.classList.add('dialogBackdrop');
 
-    const backdropParent = dlg.dialogContainer || dlg;
-    backdropParent.parentNode.insertBefore(backdrop, backdropParent);
+    dlg.parentNode.insertBefore(backdrop, dlg);
     dlg.backdrop = backdrop;
 
     // trigger reflow or the backdrop will not animate
     void backdrop.offsetWidth;
     backdrop.classList.add('dialogBackdropOpened');
 
-    dom.addEventListener((dlg.dialogContainer || backdrop), 'click', e => {
-        if (e.target === dlg.dialogContainer) {
+    dom.addEventListener((backdrop), 'click', e => {
+        if (e.target === backdrop) {
             close(dlg);
         }
     }, {
         passive: true
     });
 
-    dom.addEventListener((dlg.dialogContainer || backdrop), 'contextmenu', e => {
-        if (e.target === dlg.dialogContainer) {
+    dom.addEventListener((backdrop), 'contextmenu', e => {
+        if (e.target === backdrop) {
             // Close the application dialog menu
             close(dlg);
             // Prevent the default browser context menu from appearing
