@@ -348,6 +348,9 @@ function init(context) {
     form.removeEventListener('submit', onSubmit);
     form.addEventListener('submit', onSubmit);
 
+    context.querySelector('.btnSave').addEventListener('click', function(e) {
+        form.requestSubmit();
+    })
     context.querySelector('#btnAddPerson').addEventListener('click', function () {
         editPerson(context, {}, -1);
     });
